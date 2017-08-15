@@ -8,7 +8,7 @@ import {AdminMenuComponent} from './components/admin-menu/admin-menu.component';
 // external modules
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
 const AdminRoutes: Routes = [
@@ -26,6 +26,7 @@ const AdminRoutes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(AdminRoutes)
   ],
   exports: [
