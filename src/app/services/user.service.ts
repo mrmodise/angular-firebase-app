@@ -56,7 +56,7 @@ export class UserService implements CanActivate {
 
   register(user: User): void {
     firebase.auth()
-      .createUserWithEmailAndPassword(user.email, user.password)
+      .createUserWithEmailAndPassword(user._email, user._password)
       .catch(function (error) {
         alert(`${error.message} Please try again!`);
       });
