@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {User} from '../../../models/user';
+import {UserService} from '../../../services/user.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,9 +11,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+  passwordFail = false;
+  email: string;
+  password: string;
+  password2: string;
+  registerForm: FormGroup;
+
+  constructor(private router: Router,
+              private userService: UserService,
+              private fb: FormBuilder) {
+  }
 
   ngOnInit() {
+    this.createForm();
+  }
+
+  signUp(): void {
+    if (this.password !== this.password2) {
+      this.passwordFail = true;
+    } else {
+      this.passwordFail = false;
+      this.user._email = this.email;
+      this.user._password = this.password;
+      this.userService.register(this.user);
+      this.userService.verifyUser();
+    }
+  }
+
+  cancel(): void {
+    this.router.navigate(['/']);
+  }
+
+  createForm(): void {
+    this.registerForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      password2: ['', Validators.required],
+    });
   }
 
 }

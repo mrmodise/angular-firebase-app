@@ -1,3 +1,38 @@
-<p>
-  sign-up works!
-</p>
+<div class="row expanded align-center">
+  <h1>Register an account</h1>
+</div>
+<div class="row align-center">
+  <form [formGroup]="registerForm" (ngSubmit)="signUp()">
+    <div class="small-12 columns">
+      <label for="email">
+        <input id="email" name="email" formControlName="email" placeholder="Enter username">
+        <div class="alert callout">
+          Username is required
+        </div>
+      </label>
+    </div>
+    <div class="small-12 columns">
+      <label for="pass">
+        <input id="pass" name="pass" type="password" formControlName="password" placeholder="Enter password">
+        <div class="alert callout">
+          Password is required
+        </div>
+      </label>
+    </div>
+
+    <div class="small-12 columns">
+      <label for="pass">
+        <input id="pass2" name="pass2" type="password" formControlName="password2" placeholder="Enter password">
+        <div *ngIf="passwordFail" class="alert callout">
+          Password do not match
+        </div>
+      </label>
+    </div>
+    <div class="small-12 columns">
+      <div class="expanded button-group">
+        <button class="success button" [disabled]="registerForm.invalid">Signup</button>
+        <button class="button" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
