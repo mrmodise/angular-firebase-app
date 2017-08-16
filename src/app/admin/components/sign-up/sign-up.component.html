@@ -1,11 +1,11 @@
-<div class="row expanded align-center">
+<div class="row expanded text-center">
   <h1>Register an account</h1>
 </div>
 <div class="row align-center">
   <form [formGroup]="registerForm" (ngSubmit)="signUp()">
     <div class="small-12 columns">
       <label for="email">
-        <input id="email" name="email" formControlName="email" placeholder="Enter username">
+        <input id="email" type="text" name="email" formControlName="email" placeholder="Enter username">
         <div class="alert callout">
           Username is required
         </div>

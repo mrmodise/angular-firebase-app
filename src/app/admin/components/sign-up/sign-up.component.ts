@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  user: User;
+  user: User = new User();
   passwordFail = false;
   email: string;
   password: string;
@@ -32,8 +32,8 @@ export class SignUpComponent implements OnInit {
       this.passwordFail = true;
     } else {
       this.passwordFail = false;
-      this.user._email = this.email;
-      this.user._password = this.password;
+      this.user._email = this.registerForm.get('email').value;
+      this.user._password = this.registerForm.get('password').value;
       this.userService.register(this.user);
       this.userService.verifyUser();
     }
