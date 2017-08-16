@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Taviraj');
 $taviraj: 'Taviraj', serif;
 
-@import 'settings';
+@import 'settings.scss';
 @import '~foundation-sites/assets/foundation.scss';
+@import '~foundation-sites/assets/foundation-float.scss';
+@import '~foundation-sites/assets/foundation-rtl.scss';
