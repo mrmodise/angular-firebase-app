@@ -1,18 +1,18 @@
-<div class="row expanded align-center">
+<div class="row column text-center">
   <h1>Log on to your account</h1>
 </div>
-<div class="row align-center">
+<div class="row column align-center">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-    <div class="small-12 columns">
+    <div class="medium-12 columns">
       <label for="email">
-      <input id="email" name="email" formControlName="username" placeholder="Enter username">
+      <input id="email" name="email" type="text" formControlName="username" placeholder="Enter username">
       <div class="alert callout">
         Username is required
       </div>
       </label>
     </div>
 
-    <div class="small-12 columns">
+    <div class="medium-12 columns">
       <label for="pass">
       <input id="pass" name="pass" type="password" formControlName="password" placeholder="Enter password">
       <div class="alert callout">
@@ -21,13 +21,13 @@
       </label>
     </div>
 
-    <div class="small-12 columns">
+    <div class="medium-12 columns">
       <div class="expanded button-group">
         <button class="success button" [disabled]="loginForm.invalid">Login</button>
         <button class="button" (click)="signUp()">Sign Up</button>
       </div>
     </div>
-    <div class="small-12 columns">
+    <div class="medium-12 columns">
       <p (click)="cancel()" class="text-center simlink">Back to the Main Site</p>
     </div>
     <pre>{{loginForm}}</pre>
