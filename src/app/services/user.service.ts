@@ -27,8 +27,9 @@ export class UserService implements CanActivate {
   }
 
   login(user: User): void {
+    console.log(`${user._email} and ${user._password}`)
     firebase.auth()
-      .signInWithEmailAndPassword(user.email, user.password)
+      .signInWithEmailAndPassword(user._email, user._password)
       .catch(function (error) {
         alert(`${error.message} Unable to login. Try again!`);
       });
